@@ -30,6 +30,5 @@ if __name__ == '__main__':
     #data = get_weather_data()
     #print('{}, maxtemp = {}, mintemp = {}. Current temp = {}'.format(data['name'], data['main']['temp_max'], data['main']['temp_min'], data['main']['temp']))
     #print('\nПогодные усл. - {}, видимость - {} м, ветер - {} м/с, облачность {}%'.format(data['weather'][0]['description'], data['visibility'], data['wind']['speed'], data['clouds']['all']))
-    print(get_weather_message())
-
+    print(type(get_weather_data()))
 
