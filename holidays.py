@@ -12,22 +12,23 @@ holiday_days = [
                 '23-02',
                 '08-03',
                 '01-05',
-                '09-01',
+                '09-05',
                 '12-06',
                 '04-11'
 ]
 
-def get_holiday():
+today = date.today()
+today = today.strftime("%d-%m-%Y")
+today = today[:-5]
+
+def get_holiday(day=today):
     """Cheking if today is holiday"""
 
-    today = date.today()
-    today = today.strftime("%d-%m-%Y")
-
-    if today[:-5] in holiday_days:
+    if day in holiday_days:
         return True
 
     else:
         return False
 
-print(get_holiday())
+
 

@@ -1,6 +1,7 @@
 import unittest
 
 from get_weather import get_weather_data, get_weather_message
+from holidays import get_holiday
 
 
 class GetWeatherTestCase(unittest.TestCase):
@@ -15,4 +16,15 @@ class GetWeatherTestCase(unittest.TestCase):
         self.assertEqual(type(result), str)
 
 
-unittest.main()
+class GetHolidaysTestCase(unittest.TestCase):
+    """Tests for holidays.py"""
+
+    def test_get_holidays(self):
+        result_true = get_holiday(day='09-05')
+        result_false = get_holiday(day='10-07')
+        self.assertTrue(result_true)
+        self.assertFalse(result_false)
+
+
+if __name__ == '__main__':
+    unittest.main()
