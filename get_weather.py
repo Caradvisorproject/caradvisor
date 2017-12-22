@@ -1,11 +1,11 @@
 import requests
 
-from weather_settings import API_KEY
+from settings import OPENWEATHER_API_KEY
 
 
 def get_weather_data():
     """Getting current weather"""
-    url = 'http://api.openweathermap.org/data/2.5/weather?id=524901&units=metric&lang=ru&appid=%s' % (API_KEY)
+    url = 'http://api.openweathermap.org/data/2.5/weather?id=524901&units=metric&lang=ru&appid=%s' % (OPENWEATHER_API_KEY)
 
     try:
         result = requests.get(url)
