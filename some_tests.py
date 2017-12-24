@@ -2,6 +2,7 @@ import unittest
 
 from get_weather import get_weather_data, get_weather_message
 from holidays import get_holiday
+from roads_closed import get_road_restrictions
 
 
 class GetWeatherTestCase(unittest.TestCase):
@@ -24,6 +25,14 @@ class GetHolidaysTestCase(unittest.TestCase):
         result_false = get_holiday(day='10-07')
         self.assertTrue(result_true)
         self.assertFalse(result_false)
+
+
+class RoadsClosedTestCase(unittest.TestCase):
+    """Tests for roads_closed.py"""
+
+    def test_get_road_restrictions(self):
+        closed_roads = get_road_restrictions()
+        self.assertEqual(type(closed_roads), str)
 
 
 if __name__ == '__main__':
