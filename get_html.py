@@ -13,5 +13,3 @@ def get_html(url):
     except requests.exceptions.RequestException as e:
         print(e)
         return False
-
-
