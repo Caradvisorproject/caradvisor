@@ -14,11 +14,11 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
 
 def caradvice(bot, update):
     #print(update)
-    logging.info('User {} pushed /start'.format(update.message.chat.username))
+    logging.info('User {} pushed /caradvice'.format(update.message.chat.username))
     mytext = "Hello, {}! Command is {}".format(update.message.chat.first_name, '/caradvice')
     update.message.reply_text(mytext)
 
-    print('start')
+    print('started caradvice_bot')
 
 
 def chat(bot, update):
