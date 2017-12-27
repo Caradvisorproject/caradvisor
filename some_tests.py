@@ -43,6 +43,5 @@ class GetHtmlTestCase(object):
         self.assertEqual(type(html), str)
 
 
-
 if __name__ == '__main__':
     unittest.main()
