@@ -3,6 +3,7 @@ import unittest
 from get_weather import get_weather_data, get_weather_message
 from holidays import get_holiday
 from roads_closed import get_road_restrictions
+from get_html import get_html
 
 
 class GetWeatherTestCase(unittest.TestCase):
@@ -33,6 +34,14 @@ class RoadsClosedTestCase(unittest.TestCase):
     def test_get_road_restrictions(self):
         closed_roads = get_road_restrictions()
         self.assertEqual(type(closed_roads), str)
+
+
+class GetHtmlTestCase(object):
+    """docstring for GetHtmlTestCase"""
+    def test_get_html(self):
+        html = get_html()
+        self.assertEqual(type(html), str)
+
 
 
 if __name__ == '__main__':

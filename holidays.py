@@ -15,18 +15,16 @@ holiday_days = [
                 '09-05',
                 '12-06',
                 '04-11'
-]
+            ]
 
 today = date.today()
-today = today.strftime("%d-%m-%Y")
+today = today.strftime('%d-%m-%Y')
 today = today[:-5]
 
 def get_holiday(day=today):
     """Cheking if today is holiday"""
-
     if day in holiday_days:
         return True
-
     else:
         return False
 

@@ -15,7 +15,7 @@ def get_weather_data():
     if result.status_code == 200:
         return result.json()
     else:
-        print("Somthg is wrong with server response")
+        print('Somthg is wrong with server response')
 
 
 def get_weather_message():
