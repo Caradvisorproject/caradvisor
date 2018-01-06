@@ -4,3 +4,4 @@ settings.py
 env
 *.csv
 *.txt
+traffic_img
