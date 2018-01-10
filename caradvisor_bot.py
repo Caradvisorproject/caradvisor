@@ -1,17 +1,17 @@
 import logging
 import datetime
 
-from settings import TELEGRAM_API_KEY
 
+from settings import TELEGRAM_API_KEY
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from get_weather import get_weather_data, get_weather_message
 from roads_closed import get_road_restrictions
+
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     level = logging.INFO,
                     # filename='bot.log'
                     )
-
 
 
 def caradvice(bot, update):

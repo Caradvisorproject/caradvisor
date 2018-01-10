@@ -22,7 +22,7 @@ def get_weather_message():
     """Returns current weather conditions message"""
     data = get_weather_data()
     weather_message = ''
-    weather_message += 'Тек. темп = {} \xB0C (Макс = {} \xB0С, Мин = {} \xB0C)'.format(data['main']['temp'], data['main']['temp_max'], data['main']['temp_min'])
+    weather_message += 'Тек. темп = {} \xB0C (Max = {} \xB0С, Min = {} \xB0C)'.format(data['main']['temp'], data['main']['temp_max'], data['main']['temp_min'])
     weather_message += '\nПогодные усл. - {}, видимость - {} м,\nВетер - {} м/с, облачность {}%'.format(data['weather'][0]['description'], data['visibility'], data['wind']['speed'], data['clouds']['all'])
     return weather_message
 
