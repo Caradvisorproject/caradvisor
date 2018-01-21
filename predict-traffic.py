@@ -68,6 +68,6 @@ if __name__ == "__main__":
     jams_predict = 'Предстоящие баллы пробок: ' + str(predict_points())
     day_type = day_type()
     
-    print(day_type) '''Вывод рекомендаций по типу дня'''
-    print(jams_now) '''Вывод текущих пробок'''
-    print(jams_predict) '''Вывод предсказания пробок'''
+    print(day_type)
+    print(jams_now)
+    print(jams_predict)
