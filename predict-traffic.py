@@ -63,6 +63,6 @@ if __name__ == "__main__":
     view_predict = predict_function(predict_stat, predict_start, predict_end, predict_step)
     traffic_predict = 'Предстоящие пробки: ' + str(view_predict)
     
-    print(traffic_predict)
     print(day_type)
     print(jams_now)
+    print(traffic_predict)
