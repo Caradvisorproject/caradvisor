@@ -40,9 +40,9 @@ else:
 
 def day_type():
     today = datetime.now().weekday()
-    weekdays = {0:'mon', 1:'tue', 2:'wed', 3:'thu', 4:'fri', 5:'sat', 6:'sun'}
+    """weekdays = {0:'mon', 1:'tue', 2:'wed', 3:'thu', 4:'fri', 5:'sat', 6:'sun'}"""
     if today < 5:
-        return 'Сегодня будний день. Пробки обыычно с 7 до 11 и 17 до 21'
+        return 'Сегодня будний день. Пробки обычно с 7 до 11 и 17 до 21'
     else:
         return 'Сегодня выходной день. Пробки обычно с 11 до 13 и с 17 до 20'
 
