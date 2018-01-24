@@ -1,7 +1,5 @@
 import requests
 from lxml import etree
-from datetime import datetime
-
 from datetime import datetime, timedelta
 
 def predict_function(predict_list, predict_start, predict_end, predict_step):
