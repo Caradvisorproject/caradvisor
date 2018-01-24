@@ -50,9 +50,6 @@ if __name__ == "__main__":
     jams_now = get_jams() + ': ' + get_level() + ' (' + get_icon_jams() + ') '
     day_type = day_type()
     
-    print(day_type)
-    print(jams_now)
-
     predict_start, predict_end, predict_step = 3, 12, 3
     predict_stat = {
         0: {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:1, 7:2, 8:5, 9:7, 10:8, 11:7, 12:5, 13:4, 14:4, 15:5, 16:5, 17:6, 18:7, 19:7, 20:5, 21:4, 22:2, 23:0}, 
@@ -64,5 +61,8 @@ if __name__ == "__main__":
         6: {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:1, 8:2, 9:3, 10:3, 11:4, 12:5, 13:6, 14:5, 15:6, 16:7, 17:6, 18:7, 19:6, 20:5, 21:4, 22:2, 23:0}
         }
     view_predict = predict_function(predict_stat, predict_start, predict_end, predict_step)
+    traffic_predict = 'Предстоящие пробки: ' + str(view_predict)
     
-    print('Предстоящие пробки: ' + str(view_predict))
+    print(traffic_predict)
+    print(day_type)
+    print(jams_now)
