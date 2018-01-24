@@ -65,4 +65,4 @@ if __name__ == "__main__":
         }
     view_predict = predict_function(predict_stat, predict_start, predict_end, predict_step)
     
-    print(view_predict)
+    print('Предстоящие пробки: ' + str(view_predict))
