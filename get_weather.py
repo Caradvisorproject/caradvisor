@@ -3,7 +3,7 @@ import requests
 from settings import OPENWEATHER_API_KEY
 
 URL_CURRENT_WEATHER = 'http://api.openweathermap.org/data/2.5/weather?id=524901&units=metric&lang=ru&appid=%s' % (OPENWEATHER_API_KEY)
-URL_WEATHER_PREDICTION_SIX_HOURS_AHEAD = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&lang=ru&appid=%s' % (OPENWEATHER_API_KEY)
+URL_WEATHER_FORECAST_FOR_SIX_HOURS = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&units=metric&lang=ru&appid=%s' % (OPENWEATHER_API_KEY)
 
 def get_weather_data(url):
     """Getting current weather json data"""
@@ -15,36 +15,36 @@ def get_weather_data(url):
     if result.status_code == 200:
         return result.json()
     else:
-        print('Somthg is wrong with server response')
+        print('Something is wrong with server response')
 
 
-def get_weather_message():
+def get_current_weather_message():
     """Returns current weather conditions message"""
     data = get_weather_data(URL_CURRENT_WEATHER)
-    weather_message = ''
+    current_weather_message = ''
+    current_weather_message += 'Тек. темп = {} \xB0C '.format(data['main']['temp'])
+    current_weather_message += '(Max = {} \xB0С, '.format(data['main']['temp_max'])
+    current_weather_message += 'Min = {} \xB0C)'.format(data['main']['temp_min'])
+    current_weather_message += '\nПогодные усл. - {}, '.format(data['weather'][0]['description'])
+    current_weather_message += 'видимость - {} м,\n'.format(data['visibility'])
+    current_weather_message += 'Ветер - {} м/с, '.format(data['wind']['speed'])
+    current_weather_message += 'облачность {}%'.format(data['clouds']['all'])
+    return current_weather_message
 
-    weather_message += 'Тек. темп = {} \xB0C (Max = {} \xB0С, Min = {} \xB0C)'.format(data['main']['temp'], data['main']['temp_max'], data['main']['temp_min'])
 
-    weather_message += 'Тек. темп = {} \xB0C (Макс = {} \xB0С, Мин = {} \xB0C)'.format(data['main']['temp'], data['main']['temp_max'], data['main']['temp_min'])
+def get_weather_forecast_for_six_hours():
+    """Returns weather forecast message for 6 hours ahead"""
+    weather_forecast_data = get_weather_data(URL_WEATHER_FORECAST_FOR_SIX_HOURS)
 
-    weather_message += '\nПогодные усл. - {}, видимость - {} м,\nВетер - {} м/с, облачность {}%'.format(data['weather'][0]['description'], data['visibility'], data['wind']['speed'], data['clouds']['all'])
-    return weather_message
-
-
-def get_weather_prediction_six_hours_ahead():
-    """Returns weather prediction message 6 hours ahead"""
-    data = get_weather_data(URL_WEATHER_PREDICTION_SIX_HOURS_AHEAD)
-    weather_prediction_six_hours_message = ''
-
-    weather_prediction_six_hours_message += '{}'.format(data['list'][1:3])
-
-    return weather_prediction_six_hours_message
-
+    weather_forecast_for_six_hours_message = 'Прогноз погоды на 6 часов:\n'
+    for weather_forecast in weather_forecast_data['list'][1:4]:
+        weather_forecast_for_six_hours_message += '{} '.format(weather_forecast['dt_txt'])
+        weather_forecast_for_six_hours_message += 'темп. = {}\xB0C '.format(weather_forecast['main']['temp'])
+        weather_forecast_for_six_hours_message +=  '{} \n'.format(weather_forecast['weather'][0]['description'])
+    return weather_forecast_for_six_hours_message
 
 
 if __name__ == '__main__':
-    #data = get_weather_data()
-    #print('{}, maxtemp = {}, mintemp = {}. Current temp = {}'.format(data['name'], data['main']['temp_max'], data['main']['temp_min'], data['main']['temp']))
-    #print('\nПогодные усл. - {}, видимость - {} м, ветер - {} м/с, облачность {}%'.format(data['weather'][0]['description'], data['visibility'], data['wind']['speed'], data['clouds']['all']))
-    print(get_weather_prediction())
+    print(get_current_weather_message())
+    print(get_weather_forecast_for_six_hours())
 

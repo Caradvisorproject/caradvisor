@@ -1,6 +1,5 @@
 __pycache__/
 *.log
-weather_settings.py
 env
 *.csv
 *.txt
