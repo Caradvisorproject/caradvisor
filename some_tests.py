@@ -1,6 +1,6 @@
 import unittest
 
-from get_weather import get_weather_data, get_weather_message
+from get_weather import get_weather_data, get_weather_message, URL_CURRENT_WEATHER, URL_WEATHER_PREDICTION_SIX_HOURS
 from holidays import get_holiday
 from roads_closed import get_road_restrictions
 from get_html import get_html
@@ -10,7 +10,7 @@ class GetWeatherTestCase(unittest.TestCase):
     """Tests for get_weather.py"""
 
     def test_get_weather_data_connection(self):
-        result = get_weather_data()
+        result = get_weather_data(URL_CURRENT_WEATHER)
         self.assertEqual(type(result), dict)
 
     def test_get_weather_message(self):

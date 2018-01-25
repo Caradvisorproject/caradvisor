@@ -7,7 +7,6 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 from get_weather import get_weather_data, get_weather_message
 from roads_closed import get_road_restrictions
 
-
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     level = logging.INFO,
                     # filename='bot.log'
@@ -25,6 +24,7 @@ def caradvice(bot, update):
     update.message.reply_text(user_info_text)
     update.message.reply_text(caradvisor_weather_message)
     update.message.reply_text(caradvisor_closed_roads_message)
+    update.message.reply_photo('http://static-maps.yandex.ru/1.x/?ll=37.620070,55.753630&spn=0.1,0.1&l=map,trf', caption='Я текст под картинкой')
 
     print('started caradvice_bot')
 
