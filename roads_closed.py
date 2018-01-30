@@ -13,7 +13,7 @@ def get_road_restrictions():
         bs = BeautifulSoup(html, 'html.parser')
 
         movement_restriction_message = ''
-        for item in bs.find_all('font', style='font-size:16px', size='3')[:3]:
+        for item in bs.find_all('font', style='font-size:16px', size='3')[:5]:
             text = item.text
             href = item.find('a')
             href = 'http://mosday.ru/news/' + href.get('href')

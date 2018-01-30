@@ -26,9 +26,9 @@ def get_current_weather_message():
     current_weather_message += '(Max = {} \xB0С, '.format(data['main']['temp_max'])
     current_weather_message += 'Min = {} \xB0C)'.format(data['main']['temp_min'])
     current_weather_message += '\nПогодные усл. - {}, '.format(data['weather'][0]['description'])
-    current_weather_message += 'видимость - {} м,\n'.format(data['visibility'])
-    current_weather_message += 'Ветер - {} м/с, '.format(data['wind']['speed'])
-    current_weather_message += 'облачность {}%'.format(data['clouds']['all'])
+    current_weather_message += 'видимость - {} м'.format(data['visibility'])
+    # current_weather_message += 'Ветер - {} м/с, '.format(data['wind']['speed'])
+    # current_weather_message += 'облачность {}%'.format(data['clouds']['all'])
     return current_weather_message
 
 
@@ -47,4 +47,3 @@ def get_weather_forecast_for_six_hours():
 if __name__ == '__main__':
     print(get_current_weather_message())
     print(get_weather_forecast_for_six_hours())
-
