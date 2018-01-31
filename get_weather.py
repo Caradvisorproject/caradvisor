@@ -22,12 +22,12 @@ def get_current_weather_message():
     """Returns current weather conditions message"""
     data = get_weather_data(URL_CURRENT_WEATHER)
     current_weather_message = ''
-    current_weather_message += 'Тек. темп = {} \xB0C '.format(data['main']['temp'])
+    current_weather_message += 'Тек. t = {} \xB0C '.format(data['main']['temp'])
     current_weather_message += '(Max = {} \xB0С, '.format(data['main']['temp_max'])
     current_weather_message += 'Min = {} \xB0C)'.format(data['main']['temp_min'])
     current_weather_message += '\nПогодные усл. - {}, '.format(data['weather'][0]['description'])
-    current_weather_message += 'видимость - {} м'.format(data['visibility'])
-    # current_weather_message += 'Ветер - {} м/с, '.format(data['wind']['speed'])
+    current_weather_message += 'видимость - {} м '.format(data['visibility'])
+    current_weather_message += 'Ветер - {} м/с'.format(data['wind']['speed'])
     # current_weather_message += 'облачность {}%'.format(data['clouds']['all'])
     return current_weather_message
 
@@ -36,10 +36,10 @@ def get_weather_forecast_for_six_hours():
     """Returns weather forecast message for 6 hours ahead"""
     weather_forecast_data = get_weather_data(URL_WEATHER_FORECAST_FOR_SIX_HOURS)
 
-    weather_forecast_for_six_hours_message = 'Прогноз погоды на 6 часов:\n'
-    for weather_forecast in weather_forecast_data['list'][1:4]:
+    weather_forecast_for_six_hours_message = 'Прогноз погоды на 9 часов:\n'
+    for weather_forecast in weather_forecast_data['list'][1:5]:
         weather_forecast_for_six_hours_message += '{} '.format(weather_forecast['dt_txt'])
-        weather_forecast_for_six_hours_message += 'темп. = {}\xB0C '.format(weather_forecast['main']['temp'])
+        weather_forecast_for_six_hours_message += 't = {}\xB0C '.format(weather_forecast['main']['temp'])
         weather_forecast_for_six_hours_message +=  '{} \n'.format(weather_forecast['weather'][0]['description'])
     return weather_forecast_for_six_hours_message
 
