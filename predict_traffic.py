@@ -41,7 +41,7 @@ def predict_function(predict_list, predict_start, predict_end, predict_step):
     predict_list = []
     for predict in hour_list:
         predict_list.append(predict_traff_stats[curr_weekday][predict])
-    return 'Предстоящие пробки: ' + str(predict_list)
+    return 'Предстоящие пробки на ближайшие 6 часов: ' + str(predict_list)
 
 
 def get_jams():

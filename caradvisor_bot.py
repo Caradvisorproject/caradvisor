@@ -1,5 +1,6 @@
 import logging
 import datetime
+import requests
 
 from settings import TELEGRAM_API_KEY
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
@@ -29,7 +30,7 @@ def caradvice(bot, update):
     update.message.reply_text(cardvisor_traffic_jam_message)
     update.message.reply_text(jam_prediction_six_hours_ahead)
     update.message.reply_text(jam_prediction_by_day_type_message)
-    # update.message.reply_photo('http://static-maps.yandex.ru/1.x/?ll=37.620070,55.753630&spn=0.1,0.1&l=map,trf', caption='Я текст под картинкой')
+    update.message.reply_photo('http://static-maps.yandex.ru/1.x/?ll=37.620070,55.753630&spn=0.34,0.34&l=map,trf') #caption='Карта пробок'
 
 
 def closed_roads(bot, update):
